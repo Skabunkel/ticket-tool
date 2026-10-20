@@ -10,7 +10,7 @@ initiative:
 # Ticket and initiative deduplication
 
 Implement bytelevel Boyer-Moore string search to look for titles.
-Something like this search for the as bytes, formatted like this \n # {title}\n
+Something like this search for the as bytes, formatted like this \n# {title}\n
 
 0A 23 20 54 69 63 6B 65 74 20 
 61 6E 64 20 69 6E 69 74 69 61 
