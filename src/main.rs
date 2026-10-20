@@ -1,17 +1,13 @@
 use clap::Parser;
 
+mod cli;
 mod events;
 mod ticket;
 
 use events::TicketEvents;
 
-#[derive(Parser)]
-#[command(name = "tk", about, long_about = None)]
-struct Cli {
-    #[command(subcommand)]
-    command: TicketEvents,
-}
+use crate::cli::run_cli;
 
 fn main() {
-    println!("Hello, world!");
+    let _ = run_cli();
 }
