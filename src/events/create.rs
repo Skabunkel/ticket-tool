@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use time::Date;
 
 use crate::events::{
-    TicketType,
+    ItemState, TicketType,
     methods::{parse_date, today},
 };
 
@@ -23,24 +23,40 @@ pub enum CreationEvent {
 
 #[derive(Args, Deserialize, Serialize)]
 pub struct TicketCreation {
-    name: Box<str>,
+    pub name: Box<str>,
     #[arg(short = 'o', default_value_t = false)]
-    open: bool,
+    pub open: bool,
     #[arg(short = 't', long = "type", value_enum, default_value_t = TicketType::Task)]
-    ticket_type: TicketType,
+    pub ticket_type: TicketType,
     #[arg(short = 's', long = "start", value_parser = parse_date, default_value_t = today())]
-    start_date: Date,
+    pub start_date: Date,
     #[arg(short = 'e', long = "end", value_parser = parse_date)]
-    end_date: Option<Date>,
+    pub end_date: Option<Date>,
+}
+#[derive(Deserialize, Serialize)]
+pub struct TicketObj {
+    pub ticket_type: TicketType,
+    pub state: ItemState,
+    pub start_date: Date,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub end_date: Option<Date>,
 }
 
 #[derive(Args, Deserialize, Serialize)]
 pub struct InitiativeCreation {
-    name: Box<str>,
+    pub name: Box<str>,
     #[arg(short = 'o', default_value_t = false)]
-    open: bool,
+    pub open: bool,
     #[arg(short = 's', long = "start", value_parser = parse_date, default_value_t = today())]
-    start_date: Date,
+    pub start_date: Date,
     #[arg(short = 'e', long = "end", value_parser = parse_date)]
-    end_date: Option<Date>,
+    pub end_date: Option<Date>,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct InitiativeObj {
+    pub state: ItemState,
+    pub start_date: Date,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub end_date: Option<Date>,
 }

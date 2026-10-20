@@ -6,13 +6,13 @@ use clap::{Subcommand, ValueEnum};
 mod create;
 mod methods;
 
-use create::CreationEvent;
+pub use create::{CreationEvent, InitiativeCreation, InitiativeObj, TicketCreation, TicketObj};
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Deserialize, Serialize, Debug, ValueEnum)]
 #[serde(rename_all = "PascalCase")]
 /// The Current state of a ticket.
-enum TicketState {
+pub enum ItemState {
     Open,
     InProgress,
     Closed,

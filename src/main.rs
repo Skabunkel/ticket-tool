@@ -1,4 +1,5 @@
 mod cli;
+mod config;
 mod events;
 
 use crate::cli::run_cli;

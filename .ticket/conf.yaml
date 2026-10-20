@@ -4,5 +4,5 @@
 ticket_prefix: 'tk'
 # the prefix of an initative in-12345 this *-> in <-*
 initiative_prefix: 'in'
-# The number of places to pad to to start with. 3 would give you in-001 tk-001 as your first ones and 5 would give you in-00001 tk-00001
-number_padding: 4
+# The number of random hex chars to use as the object name. 3 would give you things like this in-001 tk-001 and 5 would give you in-00001 tk-00001
+length: 5
