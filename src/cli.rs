@@ -1,4 +1,4 @@
-use std::{fs, io::SeekFrom::Current, path::PathBuf};
+use std::{fs, path::PathBuf};
 
 use crate::events::TicketEvents;
 use clap::Parser;
@@ -41,7 +41,7 @@ pub fn run_cli() -> std::io::Result<()> {
 
     match cli.command {
         TicketEvents::Init => init(std::env::current_dir()?)?,
-        TicketEvents::Create(creation_event) => todo!(),
+        TicketEvents::Create(_creation_event) => todo!(),
     }
 
     Ok(())

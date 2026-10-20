@@ -1,10 +1,5 @@
-use clap::Parser;
-
 mod cli;
 mod events;
-mod ticket;
-
-use events::TicketEvents;
 
 use crate::cli::run_cli;
 
