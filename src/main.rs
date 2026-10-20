@@ -5,5 +5,12 @@ mod events;
 use crate::cli::run_cli;
 
 fn main() {
-    let _ = run_cli();
+    let res = run_cli();
+
+    if let Err(error) = res {
+        match error {
+            config::AppError::File(error) => eprintln!("{:?}", error),
+            config::AppError::Seralizer(error) => eprintln!("{:?}", error),
+        }
+    }
 }
