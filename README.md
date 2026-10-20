@@ -1,3 +1,5 @@
+No vibe coding.
+
 # idea
 
 The idea is to to have a simple ticket tool for CLI and with a webserver aswell.
