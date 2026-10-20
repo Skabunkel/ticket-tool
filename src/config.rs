@@ -19,7 +19,7 @@ pub enum AppError {
 pub fn read_config(mut path: PathBuf) -> Result<Conf, AppError> {
     path.push(cli::CONFIG_FILE_NAME);
 
-    let reader = File::open(path).map_err(|x| AppError::File(x))?;
-    let conf: Conf = yaml_serde::from_reader(reader).map_err(|x| AppError::Seralizer(x))?;
+    let reader = File::open(path).map_err(AppError::File)?;
+    let conf: Conf = yaml_serde::from_reader(reader).map_err(AppError::Seralizer)?;
     Ok(conf)
 }
